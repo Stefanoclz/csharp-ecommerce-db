@@ -36,5 +36,11 @@ internal class Order
 
         return total;
     }
+
+    public List<Product> GetList()
+    {
+        List<Product> list = this.ProductCart;
+        return list;
+    }
 }
 

@@ -35,7 +35,7 @@ using(EcommerceContext db = new EcommerceContext())
     */
 
     //***** CREAZIONE E AGGIUNTA ORDINI******
-
+    /*
     Order ord1 = new Order { Date = DateTime.Parse("20/06/2022"), Status = "Spedito", CustomerId = 2, Amount = 0};
     ord1.AddProducts(first);
     ord1.AddProducts(third);
@@ -65,7 +65,17 @@ using(EcommerceContext db = new EcommerceContext())
     db.Add(ord4);
     db.Add(ord5);
     db.SaveChanges();
+    */
 
+    //***** RECUPERARE LISTA ORDINI EFFETTUATI DA UN CLIENTE ******
+
+    List<Order> orders = db.Orders.Where(orders => orders.CustomerId == 2).ToList();
+    Console.WriteLine("LISTA ORDINI UTENTE ID 1");
+    foreach(Order order in orders)
+    {
+        Console.WriteLine($"Data ordine: {order.Date} | Totale: {order.Amount} | stato: {order.Status}");
+        
+    }
 
 
 }
