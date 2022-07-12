@@ -18,5 +18,16 @@ internal class Order
     public int CustomerId { get; set; }
     public Customer Customer { get; set; }
     public List<Product> ProductCart { get; set; } 
+
+    public decimal GetAmount()
+    {
+        decimal total = 0;
+        foreach(Product product in ProductCart)
+        {
+            total += product.Price;
+        }
+
+        return total;
+    }
 }
 
