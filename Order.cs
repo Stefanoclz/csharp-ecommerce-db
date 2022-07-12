@@ -19,6 +19,13 @@ internal class Order
     public Customer Customer { get; set; }
     public List<Product> ProductCart { get; set; } 
 
+    public void AddProducts(Product param)
+    {
+        ProductCart = new List<Product>();
+
+        ProductCart.Add(param);
+
+    }
     public decimal GetAmount()
     {
         decimal total = 0;

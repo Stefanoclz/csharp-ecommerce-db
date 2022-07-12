@@ -37,36 +37,34 @@ using(EcommerceContext db = new EcommerceContext())
     //***** CREAZIONE E AGGIUNTA ORDINI******
 
     Order ord1 = new Order { Date = DateTime.Parse("20/06/2022"), Status = "Spedito", CustomerId = 2, Amount = 0};
-    db.Add(ord1);
-    db.SaveChanges();
-    ord1.ProductCart.Add(first);
-    ord1.ProductCart.Add(third);
+    ord1.AddProducts(first);
+    ord1.AddProducts(third);
     ord1.Amount = ord1.GetAmount();
 
-   /* Order ord2 = new Order { Date = DateTime.Parse("15/02/2022"), Status = "Consegnato", CustomerId = 1, Amount = 0 };
-    ord2.ProductCart.Add(fourth);
+    Order ord2 = new Order { Date = DateTime.Parse("15/02/2022"), Status = "Consegnato", CustomerId = 1, Amount = 0 };
+    ord2.AddProducts(fourth);
     ord2.Amount = ord2.GetAmount();
 
     Order ord3 = new Order { Date = DateTime.Parse("10/07/2022"), Status = "Pagamento in verifica", CustomerId = 3, Amount = 0 };
-    ord3.ProductCart.Add(second);
+    ord3.AddProducts(second);
     ord3.Amount = ord3.GetAmount();
 
     Order ord4 = new Order { Date = DateTime.Parse("12/12/2021"), Status = "Consegnato", CustomerId = 1, Amount = 0 };
-    ord4.ProductCart.Add(third);
-    ord4.ProductCart.Add(first);
+    ord4.AddProducts(third);
+    ord4.AddProducts(first);
     ord4.Amount = ord4.GetAmount();
 
     Order ord5 = new Order { Date = DateTime.Parse("11/07/2022"), Status = "In preparazione", CustomerId = 2, Amount = 0 };
-    ord5.ProductCart.Add(fourth);
-    ord5.ProductCart.Add(fifth);
+    ord5.AddProducts(fourth);
+    ord5.AddProducts(fifth);
     ord5.Amount = ord5.GetAmount();
 
-    
+    db.Add(ord1);
     db.Add(ord2);
     db.Add(ord3);
     db.Add(ord4);
-    db.Add(ord5);*/
-    
+    db.Add(ord5);
+    db.SaveChanges();
 
 
 
