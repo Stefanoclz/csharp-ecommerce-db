@@ -73,9 +73,11 @@ using(EcommerceContext db = new EcommerceContext())
     Console.WriteLine("LISTA ORDINI UTENTE ID 1");
     foreach(Order order in orders)
     {
-        Console.WriteLine($"Data ordine: {order.Date} | Totale: {order.Amount} | stato: {order.Status}");
-        
+        Console.WriteLine($"Data ordine: {order.Date} | Totale: {order.Amount} | stato: {order.Status}");       
     }
 
 
+    Order modify = db.Orders.Where(modify => modify.OrderId == 33).First();
+    modify.Status = "In consegna";
+    db.SaveChanges();
 }
